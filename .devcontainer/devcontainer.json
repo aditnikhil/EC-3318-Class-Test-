@@ -1,0 +1,33 @@
+{
+  "name": "Python for EC3318/MN3101",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "VIRTUAL_ENV": "${containerWorkspaceFolder}/.venv",
+    "PATH": "${containerWorkspaceFolder}/.venv/bin:${containerWorkspaceFolder}/.tools/uv:${containerEnv:PATH}:/home/vscode/.local/bin"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "extensions.ignoreRecommendations": true,
+        "extensions.autoUpdate": "on",
+        "extensions.autoCheckUpdates": true,
+        "extensions.autoUpdateDelay": 0,
+        "python.useEnvironmentsExtension": false,
+        "workbench.sideBar.location": "left",
+        "workbench.secondarySideBar.defaultVisibility": "visible",
+        "claudeCode.preferredLocation": "sidebar"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "GitHub.copilot-chat",
+        "emeraldwalk.runonsave",
+        "Anthropic.claude-code"
+      ]
+    }
+  },
+  "postCreateCommand": "bash .utilities/post_create.sh",
+  "postStartCommand": "bash .utilities/post_start.sh",
+  "waitFor": "postCreateCommand"
+}
